@@ -1,0 +1,3 @@
+interface:
+  display_name: "Discuss Mode"
+  short_description: "Critical, comprehensive discussion grounded in repository context."

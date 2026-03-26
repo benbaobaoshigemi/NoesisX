@@ -1,0 +1,3 @@
+interface:
+  display_name: "Command Mode"
+  short_description: "Execute explicit top-priority user directives with risk disclosure and dangerous-action logging."

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Report Mode"
+  short_description: "Route formal report writing through temporary drafting and polishing subagents using local prompt references."
