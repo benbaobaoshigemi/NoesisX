@@ -48,6 +48,42 @@
 - `experiment/YYYY-MM-DD_HHMMSS/experiment.md`：每轮正式实验的原始记录本，是实验级最低留痕单位。
 - `library/INDEX.md`：资料库索引与最小元信息，不替代资料本体。
 
+## Workspace Layout
+
+当前运行工作区以本目录为根，至少应保持以下结构：
+
+- `.agents/skills/`：项目运行技能与系统技能
+- `.codex/config.toml` 与 `.codex/agents/`：Codex 配置与固定子代理装配
+- `brain/`：长期状态核心区
+- `experiment/`：正式实验记录区
+- `library/`：正式资料库
+- `visualization/`：正式图像资产
+- `writer-output/`：正式文稿输出
+- `inbox/`：用户提供材料的临时入口
+- `archive/`：暂不活跃但需要保留的内容
+- `scratch/`：工作区内部的临时工作面
+
+其中真正的状态权威只在 `brain/`、`experiment/`、`library/INDEX.md` 这类正式记录文件里；其余目录承担输入、输出、缓存、临时加工或归档职责。
+
+## Initialization
+
+当工作区刚建立、尚未进入稳定运行态时，至少完成以下初始化：
+
+1. 确认目录骨架已存在：`.agents/skills/`、`.codex/`、`brain/`、`experiment/`、`library/`、`visualization/`、`writer-output/`、`inbox/`、`archive/`、`scratch/`
+2. 确认核心文件已在位：
+   - `AGENTS.md`
+   - `brain/PROJECT.md`
+   - `brain/ASSIGNMENT.md`
+   - `brain/GRAPH.md`
+   - `brain/NOTE.md`
+   - `library/INDEX.md`
+   - `.codex/config.toml`
+   - `.codex/agents/*.toml`
+3. 首次进入时，先按 `Startup Order` 读取 `brain/PROJECT.md`、`brain/ASSIGNMENT.md`、`brain/NOTE.md`
+4. 若这些状态文件仍是空骨架，先把当前项目目标、任务边界、工程注意事项和主线节点补到最低可运行状态，再继续执行任务
+
+初始化的目的不是填满所有文件，而是保证系统进入“可持续维护状态”，让后续动作都能落到正确目录和正确记录层。
+
 ## Startup Order
 
 每次进入项目时，按以下顺序读取：
@@ -87,6 +123,8 @@
 - 出现足以改变研究方向或需要用户决策的高价值异常。
 - 涉及账号、付费服务、敏感资源或其他外部限制。
 
+- 属于当前任务边界内的必要动作，必须在本轮直接执行；不得以“如果你要，我可以……”作为收束语替代执行。
+
 ## File Discipline
 
 - 项目根目录只保留全局入口与说明，不产生零散过程文件。
@@ -97,6 +135,9 @@
 - 用户上传文件优先进入 `inbox/` 作为临时入口。
 - 暂时不用但有保留价值的旧文件进入 `archive/`。
 - `scratch/` 可以容纳临时性实验文件，但不等于正式记录。
+- 非实验性的实际工作可以发生在工作区内，例如脚本整理、字体修复、目录整顿、图形草稿、导出中间物、临时检查图、临时数据加工与调试产物；这些内容可以放在合适的工作区目录中，尤其是 `scratch/`，但不得冒充正式实验记录。
+- 只有当一轮工作形成明确检验边界、明确输入输出和明确实验问题时，才进入 `experiment/` 并建立正式 `experiment.md`。
+- 不是所有工作都要写成实验；但所有重要工作都必须在工作区内有正确落点，不能成为根目录游离文件。
 - 所有系统生成的时间命名必须来自真实本地时间，格式统一为 `YYYY-MM-DD_HHMMSS`。
 - 聊天窗口里的动作不算完成；关键动作必须在文件系统中可回读。
 - 正式实验、正式数据处理、正式可视化、正式文稿生成、正式目录整理、正式修复或其他会影响项目状态的脚本执行，必须先写成文件，再运行。
