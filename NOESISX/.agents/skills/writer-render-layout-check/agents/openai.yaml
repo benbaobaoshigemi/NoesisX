@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Render Layout Check"
+  short_description: "Check formal document layout, rendering, tables, formulas, and figure placement before delivery."
+policy:
+  allow_implicit_invocation: false

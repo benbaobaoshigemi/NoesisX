@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Bilingual Academic Translation"
+  short_description: "Handle academic Chinese-English translation with source-language awareness and stable terminology."
+policy:
+  allow_implicit_invocation: false

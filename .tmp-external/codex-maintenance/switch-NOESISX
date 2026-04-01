@@ -1,0 +1,128 @@
+#!/bin/zsh
+set -euo pipefail
+
+SCRIPT_DIR="${0:A:h}"
+SCRIPT_NAME="${0:t}"
+ROOT_DIR="${SCRIPT_DIR:h:h}"
+
+if [[ "$SCRIPT_NAME" == "switch-NOESISX" ]]; then
+  DEFAULT_WORKTREE_NAME="NOESISX"
+  DEFAULT_MANIFEST_NAME="NOESISX-markdown-protection-manifest.txt"
+else
+  DEFAULT_WORKTREE_NAME="pre"
+  DEFAULT_MANIFEST_NAME="pre-markdown-protection-manifest.txt"
+fi
+
+WORKTREE="${1:-}"
+MANIFEST="${2:-}"
+
+if [[ -z "$WORKTREE" ]]; then
+  for candidate in "$ROOT_DIR/$DEFAULT_WORKTREE_NAME" "$ROOT_DIR/NOESISX" "$ROOT_DIR/pre"; do
+    if [[ -d "$candidate" ]]; then
+      WORKTREE="$candidate"
+      break
+    fi
+  done
+fi
+
+if [[ -z "$MANIFEST" ]]; then
+  for candidate in "$SCRIPT_DIR/$DEFAULT_MANIFEST_NAME" "$SCRIPT_DIR/NOESISX-markdown-protection-manifest.txt" "$SCRIPT_DIR/pre-markdown-protection-manifest.txt"; do
+    if [[ -f "$candidate" ]]; then
+      MANIFEST="$candidate"
+      break
+    fi
+  done
+fi
+
+if [[ -z "$WORKTREE" || ! -d "$WORKTREE" ]]; then
+  echo "Could not locate worktree. Pass it explicitly as the first argument." >&2
+  exit 1
+fi
+
+if [[ ! -f "$MANIFEST" ]]; then
+  echo "Missing manifest: $MANIFEST" >&2
+  exit 1
+fi
+
+typeset -a entries
+while IFS= read -r raw; do
+  raw="${raw#"${raw%%[![:space:]]*}"}"
+  raw="${raw%"${raw##*[![:space:]]}"}"
+  [[ -z "$raw" ]] && continue
+  [[ "$raw" == \#* ]] && continue
+  [[ "$raw" == ./* ]] || continue
+  entries+=("${raw#./}")
+done < "$MANIFEST"
+
+if (( ${#entries[@]} == 0 )); then
+  echo "Manifest is empty." >&2
+  exit 1
+fi
+
+mode=""
+to_md_count=0
+to_txt_count=0
+for rel in "${entries[@]}"; do
+  txt_path="$WORKTREE/$rel"
+  md_rel="${rel%.txt}.md"
+  md_path="$WORKTREE/$md_rel"
+
+  txt_exists=0
+  md_exists=0
+  [[ -f "$txt_path" ]] && txt_exists=1
+  [[ "$md_rel" != "$rel" && -f "$md_path" ]] && md_exists=1
+
+  if (( txt_exists && md_exists )); then
+    echo "Mixed suffix state detected for $rel: both .txt and .md exist." >&2
+    exit 1
+  fi
+
+  if (( !txt_exists && !md_exists )); then
+    echo "Manifest entry missing in both suffix states: $rel" >&2
+    exit 1
+  fi
+
+  if (( txt_exists )); then
+    ((to_md_count += 1))
+  else
+    ((to_txt_count += 1))
+  fi
+done
+
+if (( to_md_count > 0 && to_txt_count > 0 )); then
+  echo "Mixed workspace suffix state detected; resolve it before switching." >&2
+  exit 1
+fi
+
+if (( to_md_count > 0 )); then
+  mode="to-md"
+elif (( to_txt_count > 0 )); then
+  mode="to-txt"
+else
+  echo "Could not determine current suffix state from manifest entries." >&2
+  exit 1
+fi
+
+count=0
+for rel in "${entries[@]}"; do
+  txt_path="$WORKTREE/$rel"
+  md_path="$WORKTREE/${rel%.txt}.md"
+
+  if [[ "$mode" == "to-md" ]]; then
+    if [[ -f "$txt_path" ]]; then
+      mv "$txt_path" "$md_path"
+      ((count += 1))
+    fi
+  else
+    if [[ -f "$md_path" ]]; then
+      mv "$md_path" "$txt_path"
+      ((count += 1))
+    fi
+  fi
+done
+
+if [[ "$mode" == "to-md" ]]; then
+  echo "Switched $count files from .txt to .md"
+else
+  echo "Switched $count files from .md to .txt"
+fi

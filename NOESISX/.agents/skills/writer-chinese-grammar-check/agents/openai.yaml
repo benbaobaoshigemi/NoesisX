@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Chinese Grammar Check"
+  short_description: "Check Chinese formal prose for real wording and grammar problems without full rewriting."
+policy:
+  allow_implicit_invocation: false

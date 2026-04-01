@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Thesis Compliance Check"
+  short_description: "Check Chinese thesis drafts for structure and format compliance problems."
+policy:
+  allow_implicit_invocation: false

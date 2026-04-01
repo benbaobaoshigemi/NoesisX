@@ -1,0 +1,2 @@
+line 13: Semantics must use a wrapped block with '|'
+GN-0001: Semantics block must not be empty

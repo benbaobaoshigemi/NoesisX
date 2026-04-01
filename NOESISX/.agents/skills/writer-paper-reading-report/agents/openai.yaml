@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Paper Reading Report"
+  short_description: "Generate a structured Chinese reading report for a paper or research article."
+policy:
+  allow_implicit_invocation: false

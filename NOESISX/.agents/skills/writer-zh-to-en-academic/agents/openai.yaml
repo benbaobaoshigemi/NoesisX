@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer ZH to EN Academic"
+  short_description: "Translate Chinese academic prose into accurate academic English."
+policy:
+  allow_implicit_invocation: false

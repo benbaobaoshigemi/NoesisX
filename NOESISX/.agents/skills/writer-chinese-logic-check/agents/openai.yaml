@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Chinese Logic Check"
+  short_description: "Review mature Chinese drafts for substantive logic and consistency problems."
+policy:
+  allow_implicit_invocation: false

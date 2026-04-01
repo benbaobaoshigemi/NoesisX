@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writer Chinese Academic Polish"
+  short_description: "Polish formal Chinese academic prose without changing facts or scope."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Graph Build"
+  short_description: "Maintain brain/GRAPH.md and immediately lint it after every update"
+policy:
+  allow_implicit_invocation: true

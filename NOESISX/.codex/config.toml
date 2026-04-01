@@ -1,0 +1,34 @@
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+web_search = "live"
+
+[features]
+multi_agent = true
+js_repl = true
+
+[agents]
+max_threads = 6
+max_depth = 2
+
+[agents.fetcher]
+description = "Interactive material acquisition agent that turns hard-to-obtain external objects into traceable research materials."
+config_file = "agents/fetcher.toml"
+nickname_candidates = ["Scout", "Trace", "Harbor"]
+
+[agents.engineer]
+description = "Technical maintenance agent that restores system operability without taking over research judgment."
+config_file = "agents/engineer.toml"
+nickname_candidates = ["Patch", "Kernel", "Relay"]
+
+[agents.writer]
+description = "Formal document agent for external-facing deliverables through the push-writer workflow; produces docx/pdf outputs with layout and render validation."
+config_file = "agents/writer.toml"
+nickname_candidates = ["Quill", "Folio", "Draft"]
+
+[agents.professor]
+description = "Route-level research advisor focused on external evidence, branch decisions, and correcting low-information paths."
+config_file = "agents/professor.toml"
+nickname_candidates = ["Sage", "North", "Vector"]
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
