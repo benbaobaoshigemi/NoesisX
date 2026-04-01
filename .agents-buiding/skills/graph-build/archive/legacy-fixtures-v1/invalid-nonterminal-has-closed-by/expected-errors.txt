@@ -1,0 +1,1 @@
+GN-0001: non-terminal node must not have Closed By

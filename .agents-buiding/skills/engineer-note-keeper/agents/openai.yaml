@@ -1,0 +1,5 @@
+interface:
+  display_name: "Engineer Notes"
+  short_description: "Maintain technical conventions in NOTE.md"
+policy:
+  allow_implicit_invocation: false

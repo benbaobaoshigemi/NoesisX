@@ -1,0 +1,3 @@
+interface:
+  display_name: "Formal Output"
+  short_description: "Produce standalone external-facing formal documents"

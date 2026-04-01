@@ -1,0 +1,3 @@
+interface:
+  display_name: "Writer Chinese De-AI"
+  short_description: "Reduce obvious AI-style residue in Chinese academic prose without changing meaning."

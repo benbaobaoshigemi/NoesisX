@@ -15,7 +15,7 @@ Add `upstream-prompts/de-ai-latex-english.md` when the target document is Englis
 
 ### Draft plus polish
 Use the same drafting references as above.
-Then create a second polishing subagent that explicitly uses:
+Then run a separate polishing pass that explicitly uses:
 - `upstream-prompts/de-ai-latex-english.md`
 - optional local skill `humanizer` if available
 
@@ -28,10 +28,10 @@ Use:
 Use the drafting references that match the target genre, then add `logic-check.md` for the no-regression pass.
 
 ### Word / docx oriented deliverable
-Check whether `docx` is locally available. If yes, mention it in the subagent brief. If not, continue with the bundled prompt references and write clean document content without blocking.
+Check whether `docx` is locally available. If yes, use it directly. If not, continue with the bundled prompt references and write clean document content without blocking.
 
 ## Notes
 
 - Prefer adding one extra reference only when it clearly improves the result.
-- Do not overload the subagent with every bundled prompt file.
+- Do not overload the workflow with every bundled prompt file.
 - The user's explicit request overrides the default route.

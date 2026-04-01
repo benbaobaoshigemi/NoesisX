@@ -1,0 +1,5 @@
+interface:
+  display_name: "Library Ingest"
+  short_description: "Register traceable materials into library/INDEX.md"
+policy:
+  allow_implicit_invocation: false

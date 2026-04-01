@@ -1,0 +1,3 @@
+interface:
+  display_name: "Writer Chinese Reviewer Lens"
+  short_description: "Write concise Chinese reviewer-style critiques focused on acceptance-critical issues."

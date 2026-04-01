@@ -1,11 +1,11 @@
 ---
 name: research-report
-description: build formal reports, memos, paper sections, review-style writeups, and other deliverable documents by routing the task through temporary writing subagents. use when the user wants a file or formal deliverable rather than a chat reply, especially when the workflow should reference local copies of prompts and skill ideas from the awesome-ai-research-writing repository and optionally chain drafting plus polishing.
+description: build formal reports, memos, paper sections, review-style writeups, and other deliverable documents by selecting and applying local writing prompt references directly. use when the user wants a file or formal deliverable rather than a chat reply, especially when the workflow should reuse local prompt ideas derived from the awesome-ai-research-writing repository.
 ---
 
 Use this skill when the user wants a formal written deliverable. Treat `report` as a pipeline, not as a one-shot rewrite.
 
-Core rule: the main agent does **not** write the final deliverable body directly. The main agent classifies the request, chooses local prompt files and optional local skills, then creates a temporary subagent to draft the document. If the user asked for polishing, create a second temporary subagent for polishing. If the user did **not** ask for polishing, do a lightweight compliance check against the selected local references instead of a second rewrite pass.
+Core rule: this skill exists to route the writer's own work through the right local prompt references. Do not introduce an extra temporary writing subagent layer. The writer already is the writing role. The workflow is: classify the request, select the smallest useful set of local prompt references, draft or revise directly, then run lightweight checks so that style cleanup does not distort substance.
 
 ## Workflow
 
@@ -23,26 +23,23 @@ Core rule: the main agent does **not** write the final deliverable body directly
 
 3. **Check local skills if needed**
    Read [local skill catalog](references/local-skill-catalog.md).
-   If the task would materially benefit from a local skill such as `humanizer`, `docx`, `doc-coauthoring`, or `20-ml-paper-writing`, check whether it is locally available and mention it in the subagent brief.
+   If the task would materially benefit from a local skill such as `humanizer`, `docx`, `doc-coauthoring`, or `20-ml-paper-writing`, check whether it is locally available and use it directly if appropriate.
    Do not block on missing skills. If a needed skill is unavailable, continue using the bundled local prompt references in this skill.
 
-4. **Create the drafting subagent**
-   Build the subagent brief using [subagent brief template](references/subagent-brief-template.md).
-   The drafting subagent writes the deliverable. The brief must include:
-   - the user's actual objective and constraints
-   - the selected local prompt references
-   - any local skills that should be used
-   - explicit statement that the subagent is responsible for the document body
-   - explicit ban on inventing facts or changing the requested scope
+4. **Draft or revise directly**
+   Write the document body directly in the writer workflow using the selected local prompt references.
+   Keep the user's actual objective and constraints fixed throughout the drafting pass.
+   Do not invent facts, data, sources, or experimental outcomes.
+   Do not silently broaden or narrow the requested scope.
 
 5. **Optional polishing pass**
-   If and only if the user asked for polishing, create a new temporary polishing subagent.
+   If and only if the user asked for polishing, run a distinct polishing pass in the same writer workflow.
    Route that pass using the relevant local prompt references and any local skills such as `humanizer`.
-   The polishing subagent may improve expression, structure, and readability, but must not silently change facts, claims, evidence, or requested scope.
+   The polishing pass may improve expression, structure, and readability, but must not silently change facts, claims, evidence, or requested scope.
 
 6. **If no polishing was requested**
-   The main agent performs a compliance check instead of rewriting. Use [compliance checklist](references/compliance-checklist.md).
-   Verify that the drafted document follows the selected local prompt references and fits the requested genre.
+   Perform a compliance check instead of adding an unrequested rewrite pass. Use [compliance checklist](references/compliance-checklist.md).
+   Verify that the drafted document follows the selected local references and fits the requested genre.
 
 7. **Final check before returning or saving**
    Use [semantic drift check](references/semantic-drift-check.md).
@@ -62,8 +59,7 @@ Core rule: the main agent does **not** write the final deliverable body directly
 
 ## Important constraints
 
-- Keep the workflow staged: classify → select references/skills → draft via subagent → optional polish via new subagent → drift check.
-- Do not skip straight to writing the final file in the main agent.
-- Do not create one subagent and keep reusing it across stages. Drafting and polishing must use different temporary subagents.
+- Keep the workflow staged: classify → select references/skills → draft directly → optional polish → drift check.
+- This skill is for direct writer execution, not for spawning another writing subagent layer.
 - If the user did not ask for polishing, do not add an unrequested rewrite pass.
 - Local prompt references bundled in this skill are authoritative for wording style and review posture in this workflow.

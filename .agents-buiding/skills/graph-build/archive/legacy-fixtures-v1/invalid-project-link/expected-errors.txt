@@ -1,0 +1,2 @@
+PROJECT.md: Current Mainline Graph Node does not exist: GN-9999
+PROJECT.md: Paused contains GN-0001 but graph status is 'active'

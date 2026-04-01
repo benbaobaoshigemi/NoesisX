@@ -1,0 +1,3 @@
+interface:
+  display_name: "Route Check"
+  short_description: "Correct low-information routes with external evidence"

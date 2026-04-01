@@ -1,0 +1,1 @@
+GN-0001: terminal node must have Closed By
