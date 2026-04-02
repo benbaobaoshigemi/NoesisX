@@ -30,12 +30,15 @@ Core obligations:
 2. Read [required skills](references/required-skills.md).
 3. Read [prompt injection contract](references/prompt-injection-contract.md).
 4. Read [writer topologies](references/writer-topologies.md).
-5. Read [formal style charter](references/formal-style-charter.md).
-6. Read [output format and rendering](references/output-format-and-rendering.md).
-7. Read [visualization asset integration](references/visualization-asset-integration.md) when the deliverable should include images.
-8. Check the required skills. If any are missing, install them before dispatch instead of improvising or silently downgrading.
-9. Build one complete writer prompt body by embedding the selected local prompt seeds.
-10. Dispatch to `writer` with the chosen topology.
+5. Read [identity handshake and recovery](references/identity-handshake-and-recovery.md).
+6. Read [formal style charter](references/formal-style-charter.md).
+7. Read [output format and rendering](references/output-format-and-rendering.md).
+8. Read [visualization asset integration](references/visualization-asset-integration.md) when the deliverable should include images.
+9. Check the required skills. If any are missing, install them before dispatch instead of improvising or silently downgrading.
+10. Build one complete writer prompt body by embedding the selected local prompt seeds.
+11. Dispatch to `writer` with the chosen topology by explicitly spawning `agent_type="writer"` and forcing `fork_context=false`.
+12. Run the required role handshake immediately after spawn and before writing work.
+13. If handshake fails, close and respawn per the recovery procedure; do not continue with a misrouted child.
 
 ## Hard rules
 
@@ -49,3 +52,5 @@ Core obligations:
 - Formulas must be rendered as display formula blocks where formal formulas are required.
 - `push-writer` does not write the formal body itself.
 - `push-writer` is the parent-facing gateway into the writer-side skill chain.
+- Do not treat nickname, display name, or prior thread history as proof of role identity; only explicit role handshake counts.
+- Never use `fork_context=true` when spawning `writer`.
