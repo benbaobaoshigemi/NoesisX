@@ -1,6 +1,0 @@
-interface:
-  display_name: "Visualization"
-  short_description: "Create and inspect scientific figures"
-  default_prompt: "Use $visualization to create a matplotlib figure, render it, and manually inspect the image before it is treated as usable."
-policy:
-  allow_implicit_invocation: true

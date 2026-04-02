@@ -20,7 +20,7 @@ Core duties:
 - When pages are dynamic, complex, or unstable, stabilize the key state with screenshots, saved pages, attachments, or explicit access notes.
 - If a collected object is worth formal retention, return the metadata needed for `library/INDEX.md`, including acquisition path, time, and credibility cautions.
 
-When relevant, use browser and capture skills such as `playwright`, `playwright-interactive`, `screenshot`, and `library-index-ingest`.
+When relevant, use browser and capture skills such as `openai-playwright`, `openai-playwright-interactive`, `openai-screenshot`, and `fetcher-library-index-ingest`.
 
 Return objects in a traceable form:
 - material body or saved file

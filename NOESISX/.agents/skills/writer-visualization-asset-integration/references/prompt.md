@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/visualization-asset-integration.md`
+- `../../noesisx-push-writer/references/visualization-asset-integration.md`
 
 Inject these rules into the writer brief:
 

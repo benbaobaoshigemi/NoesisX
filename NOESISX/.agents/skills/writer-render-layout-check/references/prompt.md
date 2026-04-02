@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/output-format-and-rendering.md`
+- `../../noesisx-push-writer/references/output-format-and-rendering.md`
 
 Inject these rules into the writer brief:
 

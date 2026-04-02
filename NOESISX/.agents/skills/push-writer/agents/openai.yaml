@@ -1,3 +1,0 @@
-interface:
-  display_name: "Push Writer"
-  short_description: "Dispatch formal writing work to writer after installing needed skills and injecting local prompt content."

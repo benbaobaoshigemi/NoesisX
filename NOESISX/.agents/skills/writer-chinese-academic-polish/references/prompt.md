@@ -2,8 +2,8 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/imported-prompts/chinese-academic-polish.md`
-- `../../push-writer/references/prompt-library/prompt-seeds/chinese-academic-polish.md`
+- `../../noesisx-push-writer/references/prompt-library/imported-prompts/chinese-academic-polish.md`
+- `../../noesisx-push-writer/references/prompt-library/prompt-seeds/chinese-academic-polish.md`
 
 Inject these rules into the writer brief:
 

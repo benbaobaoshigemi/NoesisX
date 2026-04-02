@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/prompt-seeds/chinese-logic-check.md`
+- `../../noesisx-push-writer/references/prompt-library/prompt-seeds/chinese-logic-check.md`
 
 Inject these rules into the writer brief:
 

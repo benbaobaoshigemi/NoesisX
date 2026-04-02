@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/imported-prompts/latex-chinese-polish.md`
+- `../../noesisx-push-writer/references/prompt-library/imported-prompts/latex-chinese-polish.md`
 
 Inject these rules into the writer brief:
 

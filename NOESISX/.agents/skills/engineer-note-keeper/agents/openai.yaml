@@ -1,5 +1,5 @@
 interface:
-  display_name: "Engineer Notes"
+  display_name: "Engineer Note Keeper"
   short_description: "Maintain technical conventions in brain/NOTE.md"
 policy:
   allow_implicit_invocation: false

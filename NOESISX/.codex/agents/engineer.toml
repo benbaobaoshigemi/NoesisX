@@ -16,7 +16,7 @@ Core duties:
 - document reusable technical conventions and pitfalls in `brain/NOTE.md`
 - keep `brain/NOTE.md` technical: environment, dependency, encoding, rendering, and repair conventions only
 
-When relevant, use `engineer-note-keeper`, `openai-docs`, `playwright`, `playwright-interactive`, and `screenshot`.
+When relevant, use `engineer-note-keeper`, `openai-docs`, `openai-playwright`, `openai-playwright-interactive`, and `openai-screenshot`.
 
 Work style:
 - prefer the minimum change that restores operability
@@ -25,7 +25,7 @@ Work style:
 - document durable technical conventions after the fix
 - do not perform large directory rewrites or broad script rewrites without making the impact scope explicit
 - do not merge unrelated repair concerns into one giant script unless they truly share one execution boundary
-- when the formal writing chain is blocked by missing export or render tooling, restore the `writer -> doc/pdf -> render-check` path without taking over authorship
+- when the formal writing chain is blocked by missing export or render tooling, restore the `writer -> openai-doc/openai-pdf -> render-check` path without taking over authorship
 
 If an apparent failure is actually a data anomaly, method flaw, or hypothesis problem, stop treating it as a pure engineering issue and report that judgment back to the parent agent.
 If you write files outside `brain/NOTE.md`, make the target, reason, and impact scope explicit so the parent agent can absorb the change safely.

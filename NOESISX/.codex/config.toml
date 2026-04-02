@@ -21,7 +21,7 @@ config_file = "agents/engineer.toml"
 nickname_candidates = ["Patch", "Kernel", "Relay"]
 
 [agents.writer]
-description = "Formal document agent for external-facing deliverables through the push-writer workflow; produces docx/pdf outputs with layout and render validation."
+description = "Formal document agent for external-facing deliverables through the noesisx-push-writer workflow; produces docx/pdf outputs with layout and render validation."
 config_file = "agents/writer.toml"
 nickname_candidates = ["Quill", "Folio", "Draft"]
 

@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/prompt-seeds/chinese-reviewer-lens.md`
+- `../../noesisx-push-writer/references/prompt-library/prompt-seeds/chinese-reviewer-lens.md`
 
 Inject these rules into the writer brief:
 

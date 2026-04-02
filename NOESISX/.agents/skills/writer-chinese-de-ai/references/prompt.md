@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/imported-prompts/aigc-de-ai.md`
+- `../../noesisx-push-writer/references/prompt-library/imported-prompts/aigc-de-ai.md`
 
 Inject these rules into the writer brief:
 

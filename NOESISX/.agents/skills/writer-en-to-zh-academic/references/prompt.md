@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/imported-prompts/en-to-zh-academic.md`
+- `../../noesisx-push-writer/references/prompt-library/imported-prompts/en-to-zh-academic.md`
 
 Inject these rules into the writer brief:
 

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fetcher Library Ingest"
+  short_description: "Register traceable materials into library/INDEX.md with provenance and status metadata"
+policy:
+  allow_implicit_invocation: false

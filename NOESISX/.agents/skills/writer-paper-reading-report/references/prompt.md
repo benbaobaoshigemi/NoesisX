@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/imported-prompts/paper-reading-report.md`
+- `../../noesisx-push-writer/references/prompt-library/imported-prompts/paper-reading-report.md`
 
 Inject these rules into the writer brief:
 

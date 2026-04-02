@@ -2,7 +2,7 @@
 
 Source basis:
 
-- `../../push-writer/references/prompt-library/prompt-seeds/thesis-compliance-check.md`
+- `../../noesisx-push-writer/references/prompt-library/prompt-seeds/thesis-compliance-check.md`
 
 Inject these rules into the writer brief:
 

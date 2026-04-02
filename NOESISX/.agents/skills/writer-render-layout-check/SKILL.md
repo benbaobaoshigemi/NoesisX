@@ -17,8 +17,8 @@ Core rules:
 
 Do not define a separate rendering pipeline here.
 
-- reuse the installed `doc` skill for `.docx` rendering and page-image inspection
-- reuse the installed `pdf` skill for `.pdf` page-image inspection
+- reuse the installed `openai-doc` skill for `.docx` rendering and page-image inspection
+- reuse the installed `openai-pdf` skill for `.pdf` page-image inspection
 - this skill only adds writer-side acceptance criteria on top of those existing render chains
 
 Writer-specific acceptance criteria:
@@ -32,7 +32,7 @@ Writer-specific acceptance criteria:
 Closure rule:
 
 - if a material render defect exists, the document is not yet deliverable
-- revise the source, re-render through the existing `doc` / `pdf` chain, and inspect again
+- revise the source, re-render through the existing `openai-doc` / `openai-pdf` chain, and inspect again
 
 Output:
 
